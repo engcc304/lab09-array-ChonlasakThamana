@@ -20,12 +20,53 @@
         Index:  0  1  2  3  4  5
         Array:  # 19  #  #  #  2
 */
-
 #include <stdio.h>
 
+// Function to check if a number is prime
+int isPrime(int n) {
+    if (n <= 1)
+        return 0; // Not prime
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return 0; // Not prime
+    }
+    return 1; // Prime
+}
+
 int main() {
+    int N;
+    printf("Enter N: ");
+    scanf("%d", &N);
 
-    //--| YOUR CODE HERE
+    int arr[N];
 
-    return 0 ;
-}//end main function
+    // Input values into the array
+    for (int i = 0; i < N; i++) {
+        printf("Enter value[%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    // Check for prime numbers and replace non-prime numbers with '#'
+    for (int i = 0; i < N; i++) {
+        if (!isPrime(arr[i])) {
+            arr[i] = -1; // Replace non-prime numbers with -1
+        }
+    }
+
+    // Display the results
+    printf("Index:   ");
+    for (int i = 0; i < N; i++) {
+        printf("%d   ", i);
+    }
+    printf("\nArray:  ");
+    for (int i = 0; i < N; i++) {
+        if (arr[i] == -1) {
+            printf("#   ");
+        } else {
+            printf("%d   ", arr[i]);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
