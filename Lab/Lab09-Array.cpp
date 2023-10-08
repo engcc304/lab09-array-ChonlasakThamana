@@ -48,7 +48,7 @@ int main() {
 
     // Check for prime numbers and replace non-prime numbers with '#'
     for (int i = 0; i < N; i++) {
-        if (!isPrime(arr[i])) {
+        if (!isPrime (arr[i]) ) {
             arr[i] = -1; // Replace non-prime numbers with -1
         }
     }
